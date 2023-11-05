@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gereja</title>
+  </head>
+  <body>
+    <canvas
+      id="gereja"
+      width="1200"
+      height="580"
+      style="border: 1px solid black; margin: 0 auto; display: flex"
+    ></canvas>
+
+    <script>
+      const canvas = document.getElementById("gereja");
+      const context = canvas.getContext("2d");
+
+      function tengah(x, y, w, h, color, p) {
+        context.fillStyle = color;
+        context.fill();
+        context.fillRect(x - w / 2, y, w, h);
+
+        context.beginPath();
+        context.moveTo(x, y);
+
+        context.lineTo(x - w / 2, y);
+        context.lineTo(x + w / 2, y);
+        context.lineTo(x, y - p);
+        context.lineTo(x - w / 2, y);
+
+        context.fillStyle = color;
+        context.fill();
+      }
+
+      tengah(canvas.width / 2, canvas.height / 2, 300, 300, "red", 100);
+
+      // kanan
+      context.beginPath();
+      context.moveTo(canvas.width / 2 - 160, canvas.height);
+      context.lineTo(canvas.width / 2 - 160, canvas.height - 250);
+      context.lineTo(canvas.width / 2 - 300 - 160, canvas.height);
+      context.closePath();
+      context.fillStyle = "";
+      context.fill();
+
+      // kiri
+      context.beginPath();
+      context.moveTo(canvas.width / 2 + 160 + 300, canvas.height);
+      context.lineTo(canvas.width / 2 + 160, canvas.height - 250);
+      context.lineTo(canvas.width / 2 + 160, canvas.height);
+      context.closePath();
+
+      context.fillStyle = "red";
+      context.fill();
+
+      // puncak
+      context.beginPath();
+      context.moveTo(canvas.width / 2, canvas.height / 2 - 150);
+      context.lineTo(canvas.width / 2 - 100, canvas.height / 2 - 75);
+      context.lineTo(canvas.width / 2 - 100, canvas.height / 2 - 75 - 130);
+      context.lineTo(canvas.width / 2 + 100, canvas.height / 2 - 75 - 130);
+      context.lineTo(canvas.width / 2 + 100, canvas.height / 2 - 75);
+      context.lineTo(canvas.width / 2, canvas.height / 2 - 150);
+      context.fillStyle = "red";
+      context.fill();
+
+      context.beginPath();
+      context.moveTo(canvas.width / 2 - 100, canvas.height / 2 - 205);
+      context.lineTo(canvas.width / 2, canvas.height / 2 - 250);
+      context.lineTo(canvas.width / 2 + 100, canvas.height / 2 - 205);
+      context.lineTo(canvas.width / 2 - 100, canvas.height / 2 - 205);
+      context.fillStyle = "red";
+      context.fill();
+
+      // salib
+
+      // Vertikal
+      context.beginPath();
+      context.moveTo(canvas.width / 2, canvas.height / 2 - 250);
+      context.lineTo(canvas.width / 2, canvas.height / 2 - 300);
+
+      context.moveTo(canvas.width / 2, canvas.height / 2 - 275);
+      context.lineTo(canvas.width / 2 - 15, canvas.height / 2 - 275);
+      context.lineTo(canvas.width / 2 + 15, canvas.height / 2 - 275);
+
+      context.lineWidth = 7;
+      context.stroke();
+
+      context.fillStyle = "white";
+
+      context.fill();
+      context.fillRect(canvas.width / 2 - 70, canvas.height - 105, 60, 100);
+      context.fillRect(canvas.width / 2, canvas.height - 105, 60, 100);
+
+       
+      context.fillStyle='white';
+      context.beginPath();
+
+      context.arc(canvas.width / 2, canvas.height / 2 + 100, 65, Math.PI, 2 * Math.PI);
+      context.fill();
+      
+    </script>
+  </body>
+</html>
